@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cpx.dangdang.dao.OrderDao">
+
+    <insert id="insertOrder">
+        insert into t_order values(#{orderId},#{total},#{status},#{name},#{mobile},#{province},#{city},#{district},#{town},#{address},#{createDate},#{userId})
+    </insert>
+
+    <select id="selectOrderById" resultType="Order">
+        select * from t_order where order_id = #{orderId}
+    </select>
+
+    <update id="updateOrderStatus">
+        update t_order set status = 'PAID' where order_id = #{orderId}
+    </update>
+
+</mapper>

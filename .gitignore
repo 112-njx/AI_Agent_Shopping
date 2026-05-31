@@ -1,0 +1,22 @@
+# IDEA
+.idea/
+*.iml
+
+# Java
+target/
+*.class
+
+# Maven
+.mvn/wrapper/maven-wrapper.jar
+
+# Logs
+logs/
+*.log
+
+# Frontend
+node_modules/
+dist/
+
+# OS
+.DS_Store
+Thumbs.db

@@ -1,0 +1,32 @@
+server:
+  port: 8989
+  servlet:
+    context-path: /dangdang
+spring:
+  mvc:
+    date-format: yyyy-MM-dd HH:mm:ss
+  format:
+    date: yyyy-MM-dd HH:mm:ss
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+
+  # 数据库连接参数
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://localhost:3306/dangdang?useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: root
+
+# mybatis的配置  批量取别名  批量注册mapper文件
+mybatis:
+  type-aliases-package: com.cpx.dangdang.entity
+  mapper-locations: com/cpx/dang/mapper/*Mapper.xml
+  configuration:
+    map-underscore-to-camel-case: true  # 开启驼峰命名转下划线的配置
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl  # 开启日志
+
+pagehelper:
+  support-methods-arguments: true
+  helper-dialect: mysql

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cpx.dangdang.dao.CategoryDao">
+
+    <resultMap id="categoryWithChildResultMap" type="com.cpx.dangdang.dto.CategoryDTO">
+        <id column="category_id" property="categoryId" />
+        <result column="name" property="name" />
+        <result column="levels" property="levels" />
+        <result column="parent_id" property="parentId" />
+        <collection property="childList" ofType="Category">
+            <id property="categoryId" column="child_id"/>
+            <result property="name" column="child_name"/>
+            <result property="levels" column="child_levels"/>
+            <result property="parentId" column="child_parent_id"/>
+        </collection>
+    </resultMap>
+
+    <select id="selectParentCategoryWithChildCategory" resultMap="categoryWithChildResultMap">
+        select father.*,child.category_id child_id,child.name child_name,child.levels child_levels,child.parent_id child_parent_id
+        from t_category father
+        left join t_category child
+        on father.category_id = child.parent_id
+        where father.parent_id is null
+    </select>
+
+    <select id="selectCategoryByPid" resultType="Category">
+        select * from t_category where parent_id = #{pid}
+    </select>
+
+</mapper>
