@@ -4,6 +4,7 @@
 .idea/
 *.iml
 out/
+node_modules/
 
 # =========================
 # Java / Maven
