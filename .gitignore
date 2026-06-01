@@ -1,22 +1,58 @@
-# IDEA
+# =========================
+# IntelliJ IDEA
+# =========================
 .idea/
 *.iml
+out/
 
-# Java
+# =========================
+# Java / Maven
+# =========================
 target/
 *.class
+*.jar
+*.war
+*.ear
 
-# Maven
+# Maven Wrapper
 .mvn/wrapper/maven-wrapper.jar
 
 # Logs
 logs/
 *.log
 
-# Frontend
-node_modules/
-dist/
+# =========================
+# Spring Boot
+# =========================
+application-local.yml
+application-dev.yml
 
+# =========================
+# Frontend (Vue)
+# =========================
+frontend_agent/node_modules/
+frontend_agent/dist/
+
+# npm
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# =========================
 # OS
+# =========================
 .DS_Store
 Thumbs.db
+
+# =========================
+# Claude Code
+# =========================
+.claude/
+
+# =========================
+# Temporary Files
+# =========================
+*.tmp
+*.temp
+*.swp
